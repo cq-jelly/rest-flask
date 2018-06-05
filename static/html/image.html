@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>图库</title>
+</head>
+<body>
+<h3>所有图片</h3>
+<hr>
+<ul id="imageUl"></ul>
+<script src="/static/js/jquery.min.js"></script>
+<script>
+    $(function () {
+        $.getJSON('/images/', function (data) {
+            data = data.data;
+            for(var i=0;i<data.length;i++){
+                var li = "<li><img src='"+data[i].url+"'> </li>";
+                $('#imageUl').append(li)
+            }
+        })
+    })
+</script>
+</body>
+</html>
